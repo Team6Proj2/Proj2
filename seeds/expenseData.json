@@ -1,0 +1,10 @@
+[
+  {
+    "merchant": "AT&T",
+    "date_created": "06/25/2020",
+    "total_amount": 1,
+    "description": "Phone bill",
+    "category_id": 1,
+    "user_id": 1
+  }
+]
