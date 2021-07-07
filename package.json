@@ -19,11 +19,19 @@
     "express-handlebars": "^5.2.0",
     "express-session": "^1.17.1",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.6.5"
   },
   "devDependencies": {
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
     "prettier": "^2.1.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Team6Proj2/Proj2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Team6Proj2/Proj2/issues"
+  },
+  "homepage": "https://github.com/Team6Proj2/Proj2#readme"
 }
