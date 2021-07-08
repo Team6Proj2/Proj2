@@ -13,17 +13,17 @@ const seedDatabase = async () => {
     returning: true,
   });
 
+  for (const categories of categoryData) {
+    console.log("*****categories****", categories);
+    await Category.create({
+      ...categories,
+    });
+  }
+
   for (const expense of expenseData) {
     await Expense.create({
       ...expense,
       user_id: users[Math.floor(Math.random() * users.length)].id,
-    });
-  }
-
-  for (const categories of categoryData) {
-    await Category.create({
-      ...category,
-      category_id: categories[Math.floor(Math.random() * categories.length)].id,
     });
   }
 
