@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Expense, User, Category } = require("../models");
+const { Expense, User } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
@@ -28,7 +28,6 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/expense/:id", async (req, res) => {
-  // console.log(res);
   try {
     const expenseData = await Expense.findAll({
       where: { user_id: req.params.id },
@@ -57,7 +56,8 @@ router.get("/profile", withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: Project }],
+      // may want to exclude
+      include: [{ model: Expense }],
     });
 
     const user = userData.get({ plain: true });

@@ -1,8 +1,8 @@
-const router = require('express').Router();
-const { Expense } = require('../../models');
-const withAuth = require('../../utils/auth');
+const router = require("express").Router();
+const { Expense } = require("../../models");
+const withAuth = require("../../utils/auth");
 
-router.post('/', withAuth, async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
     const newExpense = await Expense.create({
       ...req.body,
@@ -15,21 +15,21 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => {
   try {
-    const projectData = await Project.destroy({
+    const expenseData = await Expense.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!projectData) {
-      res.status(404).json({ message: 'No project found with this id!' });
+    if (!expenseData) {
+      res.status(404).json({ message: "No project found with this id!" });
       return;
     }
 
-    res.status(200).json(projectData);
+    res.status(200).json(expenseData);
   } catch (err) {
     res.status(500).json(err);
   }
