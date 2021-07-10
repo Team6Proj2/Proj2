@@ -1,4 +1,4 @@
-const loginFormHandler = async (event) => {
+const loginFormHandler = (event) => {
   event.preventDefault();
 
   // Collect values from the login form
@@ -7,18 +7,25 @@ const loginFormHandler = async (event) => {
 
   if (email && password) {
     // Send a POST request to the API endpoint
-    const response = await fetch('/api/users/login', {
+     fetch('/api/users/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
-    });
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      document.location.replace(`/expense/${data.user.id}`);
+    })
+    
 
-    if (response.ok) {
-      // If successful, redirect the browser to the profile page
-      document.location.replace('/profile');
-    } else {
-      alert(response.statusText);
-    }
+    // if (response.ok) {
+    //   // If successful, redirect the browser to the profile page
+    //   console.log(response.user)
+    //   document.location.replace('/expense');
+    // } else {
+    //   alert(response.statusText);
+    // }
   }
 };
 
@@ -37,7 +44,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/expense');
     } else {
       alert(response.statusText);
     }

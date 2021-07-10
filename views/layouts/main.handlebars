@@ -11,7 +11,6 @@
 
 <body>
 
-
  <nav  class="w3-container w3-black">
         <i id="icon1" class="fas fa-home" title="Home Page"></i>
         {{!-- nav bar icons to show when logged in --}}
@@ -25,19 +24,19 @@
         <i id="icon2" class="fas fa-sign-out-alt" title="Sign-out"></i>
         <span id="heading">Welcome {{name}}!</span>
    </nav> 
-
-   <main>
+{{{body}}}
+   {{!-- <main>
      {{#if logged_in}}
       <a href="/expense"></a>
        {{else}}
        <p>Please login</p>
-
+    {{/if}}
    </main>
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/public/js/create.js"></script>
-  {{/if}}
+  {{/if}} --}}
 </body>
 
 </html>
