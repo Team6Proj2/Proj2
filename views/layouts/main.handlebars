@@ -4,35 +4,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fund My Project!</title>
+  <title>Accountability!</title>
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <span role="img" aria-label="money">💸</span>
-        <a href="/">Accountability!
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
+
+
+ <nav  class="w3-container w3-black">
+        <i id="icon1" class="fas fa-home" title="Home Page"></i>
+        {{!-- nav bar icons to show when logged in --}}
+         {{#if logged_in}}
+        <button><a href="/create"></a><i id="icon1" class="fas fa-plus-circle" title="Add record"></i></button>
         <button class="no-button" id="logout">logout</button>
+        {{!-- show if not logged in --}}
         {{else}}
         <a href="/login">login</a>
         {{/if}}
-      </nav>
-    </header>
-    <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
-      {{{ body }}}
-    </main>
-    <footer>
-      
-    </footer>
-  </div>
+        <i id="icon2" class="fas fa-sign-out-alt" title="Sign-out"></i>
+        <span id="heading">Welcome {{name}}!</span>
+   </nav> 
+
+   <main>
+     {{#if logged_in}}
+      <a href="/expense"></a>
+       {{else}}
+       <p>Please login</p>
+
+   </main>
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
