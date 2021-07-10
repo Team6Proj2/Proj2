@@ -1,14 +1,42 @@
-<div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{{get_emoji}}}</p>
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-    <span for="img" aria-label="money">💲</span>
-    <span class="dollar-amount">{{format_amount needed_funding}}</span>
-    needed
-  </p>
-  <p>
-    <button class="btn btn-primary">Fund this Project!</button>
-  </p>
-</div>
+    <table id="table" class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Merchant</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th>Amount</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>AT&T</td>
+          <td>Mobile Phone</td>
+          <td>Phone Bill</td>
+          <td>06/25/2021</td>
+          <td>$100</td>
+          <td><i id="trash1" class="fas fa-trash-alt"></i></td>
+        </tr>
+
+        <tr>
+          <td>Amazon</td>
+          <td>Office Supplies</td>
+          <td></td>
+          <td>06/24/2021</td>
+          <td>$40</td>
+          <td><i id="trash2" class="fas fa-trash-alt"></i></td>
+        </tr>
+
+        <tr>
+          <td>Smoothie King</td>
+          <td>Food/Drink</td>
+          <td></td>
+          <td>06/23/2021</td>
+          <td>$10</td>
+          <td><i id="trash3" class="fas fa-trash-alt"></i></td>
+        </tr>
+      </tbody>
+    </table>
+ 

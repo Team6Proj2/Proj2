@@ -1,4 +1,5 @@
-header, .project:not(:last-child) {
+header,
+.project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
 
@@ -23,7 +24,7 @@ header, .project:not(:last-child) {
   margin-left: -5px;
 }
 
-/* create expense styles */
+/* create.handlebars */
 div {
   border: 1px solid #666;
   display: inline-block;
@@ -33,10 +34,8 @@ div {
   width: 100%;
 }
 
-
 #icon1 {
   line-height: 50px;
-  
 }
 
 #icon1 {
@@ -50,13 +49,65 @@ div {
 }
 
 #heading {
-    padding: 43%;
+  padding: 43%;
 }
 
 #initHeading {
-    text-align: center;
+  text-align: center;
 }
 
 /* #box{
  text-align: ; 
 } */
+
+/* expense.handlebars */
+div {
+  border: 1px solid #666;
+  display: inline-block;
+  height: 50px;
+  margin: 0px;
+  padding: 2px;
+  width: 100%;
+}
+
+#icon1 {
+  line-height: 50px;
+}
+
+#icon1 {
+  vertical-align: middle;
+  font-size: 30px;
+}
+
+#icon2 {
+  vertical-align: middle;
+  font-size: 30px;
+}
+
+#icon3 {
+  vertical-align: middle;
+  font-size: 30px;
+}
+
+#heading {
+  padding: 39%;
+}
+
+#initHeading {
+  text-align: center;
+}
+
+#trash1 {
+  position: relative;
+  left: 58%;
+}
+
+#trash2 {
+  position: relative;
+  left: 60%;
+}
+
+#trash3 {
+  position: relative;
+  left: 60%;
+}
