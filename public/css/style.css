@@ -22,3 +22,41 @@ header, .project:not(:last-child) {
   font-weight: bold;
   margin-left: -5px;
 }
+
+/* create expense styles */
+div {
+  border: 1px solid #666;
+  display: inline-block;
+  height: 50px;
+  margin: 0px;
+  padding: 2px;
+  width: 100%;
+}
+
+
+#icon1 {
+  line-height: 50px;
+  
+}
+
+#icon1 {
+  vertical-align: middle;
+  font-size: 30px;
+}
+
+#icon2 {
+  vertical-align: middle;
+  font-size: 30px;
+}
+
+#heading {
+    padding: 43%;
+}
+
+#initHeading {
+    text-align: center;
+}
+
+/* #box{
+ text-align: ; 
+} */
