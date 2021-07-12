@@ -1,59 +1,58 @@
 {{#if logged_in}}
-<header>
-      <nav class="navbar navbar-light bg-dark d-flex justify-content-between">
-          {{! TO DO: user.name does not come through here. }}
-          <h3>Welcome {{user.name}}!</h3>
-          <div>
-            <a href="/" class="btn btn-primary">Home</a>
-            <a href="/logout" class="btn btn-danger">Logout</a>
-          </div>
-      </nav>
-</header>
-
-<div class="row mt-4 d-flex justify-content-center">
-  <div class="col-md-6">
-    <h3>Create a New Expense:</h3>
-    <form class="form new-expense-form">
-      <table>
-        <tr>
-          <td>Expense Name:</td>
-          <td><input id="expense-name" type="text" /></td>
-        </tr>
-        <tr>
-          <td>Merchant:</td>
-          <td><input id="expense-merchant" type="text" /></td>
-        </tr>
-        <tr>
-          <td>Date:</td>
-          <td><input id="expense-date" type="date" /></td>
-        </tr>
-        <tr>
-          <td>Total (USD):</td>
-          <td><input id="expense-total" type="number" /></td>
-        </tr>
-        <tr>
-          <td>Category:</td>
-          <td>
-            <select name="category" id="expense-category">
-              <option value="" selected="selected">Select Category</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td>Employee Name:</td>
-          <td>
-            <select id="expense-employee-name">
-              <option value="" selected="selected">Select Employee</option>
-            </select>
-        </tr>
-      </table>
-      <div class="btn-group col-md-12 row justify-content-center">
-        <button type="submit" class="btn btn-outline-danger col-sm-3 m-3">Cancel</button>
-        <button type="submit" class="btn btn-outline-primary col-sm-3 m-3">Submit</button>
+  <header>
+    <nav class="navbar navbar-light bg-dark d-flex justify-content-between">
+      {{! TO DO: user.name does not come through here. }}
+      <h3>Create a New Expense</h3>
+      <div>
+        <a href="/" class="btn btn-primary">Home</a>
+        <a href="/logout" class="btn btn-danger">Logout</a>
       </div>
-    </form>
+    </nav>
+  </header>
+
+  <div class="row mt-4 d-flex justify-content-center">
+    <div class="col-md-6">
+
+      <form>
+        <div class="form-group">
+          <label>Expense Name</label>
+          <input type="text" class="form-control" id="expense-description" />
+          <small class="form-text text-muted">Enter a short description of your
+            expense.</small>
+        </div>
+        <div class="form-group">
+          <label>Merchant</label>
+          <input type="text" class="form-control" id="expense-merchant" />
+        </div>
+        <div class="form-group">
+          <label>Date</label>
+          <input type="date" class="form-control" id="expense-date" />
+        </div>
+        <div class="form-group">
+          <label>Total (USD)</label>
+          <input type="number" class="form-control" id="expense-total" />
+        </div>
+        <div class="form-group d-flex justify-content-around">
+          <label>Category</label>
+          <select id="expense-category" name="expense-category">
+          </select>
+          <label>Employee Name</label>
+          <select id="expense-employee-name" name="expense-employee-name">
+          </select>
+        </div>
+        <div class="btn-group dropright col-md-12 row justify-content-center">
+          <button
+            onclick="window.location.href='/'"
+            class="btn btn-outline-danger col-sm-3 m-3"
+          >Cancel</button>
+          <button
+            type="submit"
+            class="btn btn-outline-primary col-sm-3 m-3"
+          >Submit</button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
 {{else}}
   <header>
     <nav class="navbar navbar-light bg-dark d-flex justify-content-between">
@@ -67,3 +66,4 @@
 {{/if}}
 
 <script src="/js/create.js"></script>
+<script src="/js/dropdowns.js"></script>

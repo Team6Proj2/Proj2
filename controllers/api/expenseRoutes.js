@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Expense } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+// create new expense
 router.post("/", withAuth, async (req, res) => {
   try {
     const newExpense = await Expense.create({
@@ -15,6 +16,7 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
+// delete expense
 router.delete("/:id", withAuth, async (req, res) => {
   try {
     const expenseData = await Expense.destroy({

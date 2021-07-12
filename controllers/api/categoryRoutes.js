@@ -2,6 +2,15 @@ const router = require("express").Router();
 const { Category } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+router.get("/", withAuth, async (req, res) => {
+  try {
+    const categoryData = await Category.findAll();
+    res.status(200).json(categoryData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.post("/", withAuth, async (req, res) => {
   try {
     const newCategory = await Category.create({
