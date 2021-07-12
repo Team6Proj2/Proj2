@@ -1,10 +1,18 @@
 [
   {
-    "merchant": "AT&T",
+    "merchant": "Andy's Thai",
     "date_created": "06/25/2020",
-    "total_amount": 1,
+    "total_amount": 15.67,
+    "description": "Business Lunch",
+    "category_id": 5,
+    "user_id": 1
+  },
+  {
+    "merchant": "AT&T",
+    "date_created": "06/26/2020",
+    "total_amount": 110,
     "description": "Phone bill",
-    "category_id": 1,
+    "category_id": 6,
     "user_id": 1
   }
 ]

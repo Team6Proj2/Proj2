@@ -1,4 +1,4 @@
-header,
+/* header,
 .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
@@ -54,14 +54,14 @@ div {
 
 #initHeading {
   text-align: center;
-}
+} */
 
 /* #box{
  text-align: ; 
 } */
 
 /* expense.handlebars */
-div {
+/* div {
   border: 1px solid #666;
   display: inline-block;
   height: 50px;
@@ -110,4 +110,4 @@ div {
 #trash3 {
   position: relative;
   left: 60%;
-}
+} */

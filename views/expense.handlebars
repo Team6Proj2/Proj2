@@ -1,0 +1,62 @@
+{{#if logged_in}}
+  <header>
+    <nav class="navbar navbar-light bg-dark d-flex justify-content-between">
+      {{! TO DO: user.name does not come through here. }}
+      <h3>Welcome {{user.name}}!</h3>
+      <div>
+        <a href="/create" class="btn btn-primary">Create Expense</a>
+        <a href="/logout" class="btn btn-danger">Logout</a>
+      </div>
+    </nav>
+  </header>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Expense</th>
+        <th scope="col">Merchant</th>
+        <th scope="col">Total Amount</th>
+        <th scope="col">Date Created</th>
+        <th scope="col">Category</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {{! Loop through each expense to add table rows }}
+      {{#each expenses as |expense|}}
+
+        <tr>
+          {{! TO DO: expense description does not appear on page }}
+          <td>{{this.description}}</td>
+          <td>{{this.merchant}}</td>
+          <td>${{this.total_amount}}</td>
+          {{! TO DO: Fix formatting on "date created" }}
+          <td>{{this.date_created}}</td>
+          <td>{{this.category_id}}</td>
+          <td>
+            {{! TO DO: update delete button. This is adding api/expenses to the end of the URL instead of just making the api call }}
+            <form action="api/expenses/{{this.id}}" method="DELETE">
+              <button
+                class="btn btn-danger text-center"
+                type="submit"
+                style="width: 50px;"
+              ><i class="far fa-trash-alt"></i></button>
+            </form>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+{{else}}
+  <header>
+    <nav class="navbar navbar-light bg-dark d-flex justify-content-between">
+      <h3>Accountability! 🧮</h3>
+      <a href="/login" class="btn btn-primary">Login</a>
+    </nav>
+  </header>
+  <main>
+    <h3 class="text-center">Please log in to view this page.</h3>
+  </main>
+{{/if}}
