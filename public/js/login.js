@@ -20,14 +20,6 @@ const loginFormHandler = (event) => {
       .catch((err) => {
         res.json(err);
       });
-
-    // if (response.ok) {
-    //   // If successful, redirect the browser to the profile page
-    //   console.log(response.user)
-    //   document.location.replace('/expense');
-    // } else {
-    //   alert(response.statusText);
-    // }
   }
 };
 
