@@ -11,6 +11,9 @@ Expense.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    description: {
+      type: DataTypes.STRING,
+    },
     merchant: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -23,9 +26,6 @@ Expense.init(
     total_amount: {
       type: DataTypes.FLOAT,
       allowNull: false,
-    },
-    description: {
-      type: DataTypes.STRING,
     },
     category_id: {
       type: DataTypes.INTEGER,

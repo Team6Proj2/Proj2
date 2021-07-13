@@ -1,47 +1,42 @@
+let addExpenseEl = document.getElementById("add-btn");
+
+// function to add expense to the list
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#project-name').value.trim();
-  const needed_funding = document.querySelector('#project-funding').value.trim();
-  const description = document.querySelector('#project-desc').value.trim();
+  const expenseName = document
+    .querySelector("#expense-description")
+    .value.trim();
+  const merchant = document.querySelector("#expense-merchant").value.trim();
+  const date = document.querySelector("#expense-date").value.trim();
+  const total = document.querySelector("#expense-total").value.trim();
+  const category = document.querySelector("#expense-category").value.trim();
 
-  if (name && needed_funding && description) {
-    const response = await fetch(`/api/projects`, {
-      method: 'POST',
-      body: JSON.stringify({ name, needed_funding, description }),
+  let newExpense = {
+    description: expenseName,
+    merchant: merchant,
+    date_created: date,
+    total_amount: total,
+    category_id: category,
+  };
+
+  if (expenseName && merchant && date && total && category) {
+    const res = await fetch(`/api/expenses`, {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-    });
-
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to create project');
-    }
+      body: JSON.stringify(newExpense),
+    })
+      .then((res) => res.json())
+      .catch((err) => {
+        res.json(err);
+      });
+    location.reload();
+  } else {
+    alert("Failed to add expense");
+    location.reload();
   }
 };
 
-const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
-    const id = event.target.getAttribute('data-id');
-
-    const response = await fetch(`/api/projects/${id}`, {
-      method: 'DELETE',
-    });
-
-    if (response.ok) {
-      document.location.replace('/profile');
-    } else {
-      alert('Failed to delete project');
-    }
-  }
-};
-
-document
-  .querySelector('.new-project-form')
-  .addEventListener('submit', newFormHandler);
-
-document
-  .querySelector('.project-list')
-  .addEventListener('click', delButtonHandler);
+addExpenseEl.addEventListener("click", newFormHandler);

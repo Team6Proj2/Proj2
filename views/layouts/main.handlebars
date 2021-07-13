@@ -1,42 +1,36 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accountability!</title>
-  <link rel="stylesheet" href="/css/jass.css">
-  <link rel="stylesheet" href="/css/style.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accountability!</title>
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/4/solar/bootstrap.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
+    {{! <link rel="stylesheet" href="/css/jass.css" />
+    <link rel="stylesheet" href="/css/style.css" /> }}
+  </head>
 
-<body>
-
- <nav  class="w3-container w3-black">
-        <i id="icon1" class="fas fa-home" title="Home Page"></i>
-        {{!-- nav bar icons to show when logged in --}}
-         {{#if logged_in}}
-        <button><a href="/create"></a><i id="icon1" class="fas fa-plus-circle" title="Add record"></i></button>
-        <button class="no-button" id="logout">logout</button>
-        {{!-- show if not logged in --}}
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-        <i id="icon2" class="fas fa-sign-out-alt" title="Sign-out"></i>
-        <span id="heading">Welcome {{name}}!</span>
-   </nav> 
-{{{body}}}
-   {{!-- <main>
-     {{#if logged_in}}
-      <a href="/expense"></a>
-       {{else}}
-       <p>Please login</p>
-    {{/if}}
-   </main>
-
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/public/js/create.js"></script>
-  {{/if}} --}}
-</body>
+  <body class="bg-light">
+    {{{body}}}
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 
 </html>

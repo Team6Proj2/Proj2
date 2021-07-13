@@ -15,19 +15,11 @@ const loginFormHandler = (event) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        document.location.replace(`/expense/${data.user.id}`);
+        document.location.replace(`/expenses/${data.user.id}`);
       })
       .catch((err) => {
         res.json(err);
       });
-
-    // if (response.ok) {
-    //   // If successful, redirect the browser to the profile page
-    //   console.log(response.user)
-    //   document.location.replace('/expense');
-    // } else {
-    //   alert(response.statusText);
-    // }
   }
 };
 
@@ -44,9 +36,8 @@ const signupFormHandler = async (event) => {
       body: JSON.stringify({ name, email, password }),
       headers: { "Content-Type": "application/json" },
     });
-
     if (response.ok) {
-      document.location.replace("/expense");
+      document.location.replace(`/expenses/${data.user.id}`);
     } else {
       alert(response.statusText);
     }

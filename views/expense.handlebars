@@ -1,25 +1,67 @@
-   <!-- Loop over each object in the projects array -->
-{{#each expenses as |expense|}}
-  <div class="row mb-4 project">
-    <div class="col-md-5">
-      
-      {{!-- <p>
-      <span for="img" aria-label="money">:heavy_dollar_sign:</span>
-      <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount project.needed_funding}}</span>
-      needed!
-    </p>
-    <p>Created by {{project.user.name}} on {{format_date project.date_created}}</p> --}}
-    </div>
-    <div class="col-md-7">
-      <p>
-        {{expense.description}}
-      </p>
-    </div>
-  </div>
-{{/each}}
-   
-   
-   
-   
- 
+{{#if logged_in}}
+  <header>
+    <nav class="navbar navbar-light bg-dark d-flex justify-content-between">
+      <h3>Welcome {{user.name}}!</h3>
+      <div>
+        <a href="/create" class="btn btn-primary">Create Expense</a>
+        <a href="/logout" id="logout" class="btn btn-danger">Logout</a>
+      </div>
+    </nav>
+  </header>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Employee Name</th>
+        <th scope="col">Expense</th>
+        <th scope="col">Merchant</th>
+        <th scope="col">Total Amount</th>
+        <th scope="col">Date</th>
+        <th scope="col">Category</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {{! Loop through each expense to add table rows }}
+      {{#each expenses as |expense|}}
+        <tr>
+          {{! TO DO: get user name instead of user id }}
+          <td>{{this.user.name}}</td>
+          <td>{{this.description}}</td>
+          <td>{{this.merchant}}</td>
+          <td>${{format_amount this.total_amount}}</td>
+          <td>{{format_date this.date_created}}</td>
+          {{! TO DO: get category name instead of category id }}
+          <td>{{this.category_id}}</td>
+          <td>
+            {{! TO DO: update delete button. This is adding api/expenses to the end of the URL instead of just making the api call }}
+            <form action="api/expenses/{{this.id}}" method="DELETE">
+              <button
+                data-id="{{this.id}}"
+                class="btn btn-danger text-center"
+                type="submit"
+                style="width: 50px;"
+                id="delete-btn"
+              ><i class="far fa-trash-alt"></i></button>
+            </form>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <header>
+    <nav class="navbar navbar-light bg-dark d-flex justify-content-between">
+      <h3>Accountability! 🧮</h3>
+      <a href="/login" class="btn btn-primary">Log In</a>
+    </nav>
+  </header>
+  <main>
+    <h3 class="text-center">Please log in to view this page.</h3>
+  </main>
+{{/if}}
+{{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  <script src="/js/delete.js"></script>
+{{/if}}

@@ -1,26 +1,63 @@
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
+{{#if logged_in}}
+  <header>
+    <nav class="navbar navbar-light bg-dark d-flex justify-content-between">
+      {{! TO DO: user.name does not come through here. }}
+      <h3>Create a New Expense</h3>
+      <div>
+        <a href="/" class="btn btn-primary view-btn">Home</a>
+        <a href="/logout" id="logout" class="btn btn-danger">Logout</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="row mt-4 d-flex justify-content-center">
+    <div class="col-md-6">
+
+      <form>
+        <div class="form-group">
+          <label>Expense Name</label>
+          <input type="text" class="form-control" id="expense-description" />
+          <small class="form-text text-muted">Enter a short description of your
+            expense.</small>
+        </div>
+        <div class="form-group">
+          <label>Merchant</label>
+          <input type="text" class="form-control" id="expense-merchant" />
+        </div>
+        <div class="form-group">
+          <label>Date</label>
+          <input type="date" class="form-control" id="expense-date" />
+        </div>
+        <div class="form-group">
+          <label>Total (USD)</label>
+          <input type="number" class="form-control" id="expense-total" />
+        </div>
+        <div class="form-group d-flex justify-content-around">
+          <label>Category</label>
+          <select id="expense-category" name="expense-category">
+          </select>
+        </div>
+        <div class="btn-group col-md-12 row justify-content-center">
+          <button
+            type="submit"
+            class="btn btn-outline-primary col-sm-3 m-3 float-right"
+            id="add-btn"
+          >Submit</button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
-
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Create a New Project:</h3>
-
-    <form class="form new-project-form">
-      <table>
-        <tr><td>Merchant:</td>
-          <td><input id="box" type="text"></td></tr>
-        <tr><td>Date:</td> <td><input id="box" type="text"></td></tr>
-        <tr><td>Total (USD):</td> <td><input id="box" type="text"></td></tr>
-        <tr><td>Category (Dropdown):</td> <td><input id="box" type="text"></td></tr>
-        <tr><td>Description:</td> <td><input id="box" type="text"></td></tr>
-        <tr><td>Employee Name:</td> <td><input id="box" type="text"></td></tr>
-      </table>
-
-    </form>
-  </div>
-</div>
-
-<script src="/js/create.js"></script>
+  <script src="/js/dropdowns.js"></script>
+  <script src="/js/create.js"></script>
+  <script src="/js/logout.js"></script>
+{{else}}
+  <header>
+    <nav class="navbar navbar-light bg-dark d-flex justify-content-between">
+      <h3>Accountability! 🧮</h3>
+      <a href="/login" class="btn btn-primary">Login</a>
+    </nav>
+  </header>
+  <main>
+    <h3 class="text-center">Please log in to view this page.</h3>
+  </main>
+{{/if}}
