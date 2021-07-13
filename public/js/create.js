@@ -45,11 +45,15 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/homepage");
+      document.location.replace(`/expenses/${data.user.id}`);
     } else {
       alert("Failed to delete expense");
     }
   }
+};
+
+const goHomeHandler = () => {
+  document.location.replace(`/expenses/${data.user.id}`);
 };
 
 document.querySelector(".add-btn").addEventListener("submit", newFormHandler);
@@ -57,3 +61,5 @@ document.querySelector(".add-btn").addEventListener("submit", newFormHandler);
 document
   .querySelector(".expense-list")
   .addEventListener("click", delButtonHandler);
+
+document.getElementById("home").addEventListener("click", goHomeHandler);

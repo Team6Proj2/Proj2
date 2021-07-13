@@ -15,7 +15,7 @@ const loginFormHandler = (event) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        document.location.replace("/");
+        document.location.replace(`/expenses/${data.user.id}`);
       })
       .catch((err) => {
         res.json(err);
@@ -38,7 +38,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/expense");
+      document.location.replace(`/expenses/${data.user.id}`);
     } else {
       alert(response.statusText);
     }

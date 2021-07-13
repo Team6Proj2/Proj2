@@ -25,7 +25,6 @@
 
       {{! Loop through each expense to add table rows }}
       {{#each expenses as |expense|}}
-
         <tr>
           {{! TO DO: expense description does not appear on page }}
           <td>{{this.description}}</td>
@@ -47,12 +46,11 @@
       {{/each}}
     </tbody>
   </table>
-
 {{else}}
   <header>
     <nav class="navbar navbar-light bg-dark d-flex justify-content-between">
       <h3>Accountability! 🧮</h3>
-      <a href="/login" class="btn btn-primary">Login</a>
+      <a href="/login" class="btn btn-primary">Log In</a>
     </nav>
   </header>
   <main>
