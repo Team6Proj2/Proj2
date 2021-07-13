@@ -17,7 +17,8 @@
         <a href="/expenses" class="btn btn-primary m-4 view-btn">See All
           Expenses</a>
         {{!-- TO DO: For below link, this would also work with {{user.id}} if we can get that working. --}}
-        <a id="view-btn" class="btn btn-primary m-4">See Only My Expenses</a>
+        <a href="/expenses/{{user.id}}" class="btn btn-primary m-4">See Only My
+          Expenses</a>
         <a href="/create" class="btn btn-primary m-4">Create Expense</a>
       </div>
     </div>
@@ -32,6 +33,6 @@
 {{/if}}
 {{#if logged_in}}
   <script src="/js/logout.js"></script>
-  {{!-- TO DO: Can delete if we get above issues resolved. --}}
+  {{! TO DO: Can delete if we get above issues resolved. }}
   <script src="/js/homepage.js"></script>
 {{/if}}
