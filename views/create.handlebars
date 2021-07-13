@@ -4,7 +4,7 @@
       {{! TO DO: user.name does not come through here. }}
       <h3>Create a New Expense</h3>
       <div>
-        <a id="home" class="btn btn-primary">Home</a>
+        <a href="/" class="btn btn-primary view-btn">Home</a>
         <a href="/logout" id="logout" class="btn btn-danger">Logout</a>
       </div>
     </nav>
@@ -40,20 +40,19 @@
           <select id="expense-employee-name" name="expense-employee-name">
           </select>
         </div>
-        <div class="btn-group dropright col-md-12 row justify-content-center">
-          <button
-            onclick="window.location.href='/'"
-            class="btn btn-outline-danger col-sm-3 m-3"
-          >Cancel</button>
+        <div class="btn-group col-md-12 row justify-content-center">
           <button
             type="submit"
-            class="btn btn-outline-primary col-sm-3 m-3"
+            class="btn btn-outline-primary col-sm-3 m-3 float-right"
             id="add-btn"
           >Submit</button>
         </div>
       </form>
     </div>
   </div>
+  <script src="/js/dropdowns.js"></script>
+  <script src="/js/create.js"></script>
+  <script src="/js/logout.js"></script>
 {{else}}
   <header>
     <nav class="navbar navbar-light bg-dark d-flex justify-content-between">
@@ -64,10 +63,4 @@
   <main>
     <h3 class="text-center">Please log in to view this page.</h3>
   </main>
-{{/if}}
-
-<script src="/js/create.js"></script>
-<script src="/js/dropdowns.js"></script>
-{{#if logged_in}}
-  <script src="/js/logout.js"></script>
 {{/if}}

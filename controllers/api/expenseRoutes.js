@@ -37,7 +37,7 @@ router.delete("/:id", withAuth, async (req, res) => {
     });
 
     if (!expenseData) {
-      res.status(404).json({ message: "No project found with this id!" });
+      res.status(404).json({ message: "No expense found with this id!" });
       return;
     }
 

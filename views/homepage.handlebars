@@ -1,2 +1,37 @@
-<h2 class="text-center">Welcome to Accountability! Please log in to see your
-  expenses. ☝️</h2>
+{{#if logged_in}}
+  <header>
+    <nav class="navbar navbar-light bg-dark d-flex justify-content-between">
+      {{! TO DO: user.name does not come through here. }}
+      <h3>Welcome {{user.name}}!</h3>
+      <div>
+        <a href="/logout" id="logout" class="btn btn-danger">Logout</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="row mt-4 d-flex justify-content-center">
+    <div class="col-md-6">
+      <h2 class="text-center">Welcome to
+        <strong>Accountability</strong>! Make a selection to get started.</h2>
+      <div class="btn-group dropright col-md-12 row justify-content-center">
+        <a href="/expenses" class="btn btn-primary m-4 view-btn">See All
+          Expenses</a>
+        {{!-- TO DO: For below link, this would also work with {{user.id}} if we can get that working. --}}
+        <a id="view-btn" class="btn btn-primary m-4">See Only My Expenses</a>
+        <a href="/create" class="btn btn-primary m-4">Create Expense</a>
+      </div>
+    </div>
+  </div>
+{{else}}
+  <header>
+    <nav class="navbar navbar-light bg-dark d-flex justify-content-between">
+      <h3>Accountability! 🧮</h3>
+      <a href="/login" class="btn btn-primary">Log In</a>
+    </nav>
+  </header>
+{{/if}}
+{{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{!-- TO DO: Can delete if we get above issues resolved. --}}
+  <script src="/js/homepage.js"></script>
+{{/if}}

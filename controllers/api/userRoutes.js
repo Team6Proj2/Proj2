@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+// get all users (for use with dropdown)
 router.get("/", withAuth, async (req, res) => {
   try {
     const userData = await User.findAll();

@@ -13,6 +13,7 @@
   <table class="table">
     <thead>
       <tr>
+        <th scope="col">Employee Name</th>
         <th scope="col">Expense</th>
         <th scope="col">Merchant</th>
         <th scope="col">Total Amount</th>
@@ -26,7 +27,7 @@
       {{! Loop through each expense to add table rows }}
       {{#each expenses as |expense|}}
         <tr>
-          {{! TO DO: expense description does not appear on page }}
+          <td>{{this.user_id}}</td>
           <td>{{this.description}}</td>
           <td>{{this.merchant}}</td>
           <td>${{format_amount this.total_amount}}</td>
@@ -59,4 +60,5 @@
 {{/if}}
 {{#if logged_in}}
   <script src="/js/logout.js"></script>
+  <script src="/js/delete.js"></script>
 {{/if}}

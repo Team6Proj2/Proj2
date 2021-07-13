@@ -1,10 +1,19 @@
 const router = require("express").Router();
-const { Expense, User, Category } = require("../models");
+const { Expense, User } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
   try {
-    // Get all expenses and JOIN with user data
+    res.render("homepage", {
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/expenses", async (req, res) => {
+  try {
     const expenseData = await Expense.findAll({
       include: [
         {
@@ -14,9 +23,10 @@ router.get("/", withAuth, async (req, res) => {
       ],
     });
 
-    // Serialize data so the template can read it
+    // serialize data so the template can read it
     const expenses = expenseData.map((expense) => expense.get({ plain: true }));
-    // Pass serialized data and session flag into template
+
+    // pass serialized data and session flag into template
     res.render("expense", {
       expenses,
       logged_in: req.session.logged_in,
@@ -38,8 +48,10 @@ router.get("/expenses/:id", async (req, res) => {
       ],
     });
 
+    // serialize data so the template can read it
     const expenses = expenseData.map((expense) => expense.get({ plain: true }));
 
+    // pass serialized data and session flag into template
     res.render("expense", {
       expenses,
       logged_in: req.session.logged_in,
