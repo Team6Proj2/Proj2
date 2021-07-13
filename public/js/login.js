@@ -15,7 +15,7 @@ const loginFormHandler = (event) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        document.location.replace(`/expenses/${data.user.id}`);
+        document.location.replace("/");
       })
       .catch((err) => {
         res.json(err);

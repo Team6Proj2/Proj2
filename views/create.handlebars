@@ -5,7 +5,7 @@
       <h3>Create a New Expense</h3>
       <div>
         <a href="/" class="btn btn-primary">Home</a>
-        <a href="/logout" class="btn btn-danger">Logout</a>
+        <a href="/logout" id="logout" class="btn btn-danger">Logout</a>
       </div>
     </nav>
   </header>
@@ -68,3 +68,6 @@
 
 <script src="/js/create.js"></script>
 <script src="/js/dropdowns.js"></script>
+{{#if logged_in}}
+  <script src="/js/logout.js"></script>
+{{/if}}
