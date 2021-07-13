@@ -38,7 +38,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/expenses");
+      document.location.replace("/expense");
     } else {
       alert(response.statusText);
     }

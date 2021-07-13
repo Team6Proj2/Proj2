@@ -30,9 +30,9 @@
           {{! TO DO: expense description does not appear on page }}
           <td>{{this.description}}</td>
           <td>{{this.merchant}}</td>
-          <td>${{this.total_amount}}</td>
+          <td>${{format_amount this.total_amount}}</td>
           {{! TO DO: Fix formatting on "date created" }}
-          <td>{{this.date_created}}</td>
+          <td>{{format_date this.date_created}}</td>
           <td>{{this.category_id}}</td>
           <td>
             {{! TO DO: update delete button. This is adding api/expenses to the end of the URL instead of just making the api call }}

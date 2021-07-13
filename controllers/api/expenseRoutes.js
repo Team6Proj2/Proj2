@@ -2,6 +2,16 @@ const router = require("express").Router();
 const { Expense } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+// get expenses
+router.get("/", withAuth, async (req, res) => {
+  try {
+    const expenseData = await Expense.findAll();
+    res.status(200).json(expenseData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // create new expense
 router.post("/", withAuth, async (req, res) => {
   try {
