@@ -15,7 +15,7 @@ const loginFormHandler = (event) => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        document.location.replace(`/expenses/${data.user.id}`);
+        document.location.replace("/");
       })
       .catch((err) => {
         res.json(err);
@@ -25,7 +25,7 @@ const loginFormHandler = (event) => {
   }
 };
 
-const signupFormHandler = (event) => {
+const signupFormHandler = async (event) => {
   event.preventDefault();
 
   const name = document.querySelector("#name-signup").value.trim();
@@ -33,13 +33,14 @@ const signupFormHandler = (event) => {
   const password = document.querySelector("#password-signup").value.trim();
 
   if (name && email && password) {
-    const response = fetch("/api/users", {
+    const response = await fetch("/api/users", {
       method: "POST",
       body: JSON.stringify({ name, email, password }),
       headers: { "Content-Type": "application/json" },
     });
+    console.log(response.ok);
     if (response.ok) {
-      document.location.replace(`/expenses/${data.user.id}`);
+      document.location.replace("/login");
     } else {
       alert(response.statusText);
     }

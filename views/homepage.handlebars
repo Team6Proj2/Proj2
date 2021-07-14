@@ -1,7 +1,6 @@
 {{#if logged_in}}
   <header>
     <nav class="navbar navbar-light bg-dark d-flex justify-content-between">
-      {{! TO DO: user.name does not come through here. }}
       <h3>Welcome {{user.name}}!</h3>
       <div>
         <a href="/logout" id="logout" class="btn btn-danger">Logout</a>
@@ -16,7 +15,6 @@
       <div class="btn-group dropright col-md-12 row justify-content-center">
         <a href="/expenses" class="btn btn-primary m-4 view-btn">See All
           Expenses</a>
-        {{!-- TO DO: For below link, this would also work with {{user.id}} if we can get that working. --}}
         <a href="/expenses/{{user.id}}" class="btn btn-primary m-4">See Only My
           Expenses</a>
         <a href="/create" class="btn btn-primary m-4">Create Expense</a>
@@ -34,5 +32,5 @@
 {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{! TO DO: Can delete if we get above issues resolved. }}
-  <script src="/js/homepage.js"></script>
+  {{! <script src="/js/homepage.js"></script> }}
 {{/if}}

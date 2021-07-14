@@ -33,7 +33,7 @@
           <td>${{format_amount this.total_amount}}</td>
           <td>{{format_date this.date_created}}</td>
           {{! TO DO: get category name instead of category id }}
-          <td>{{this.category_id}}</td>
+          <td>{{this.category.name}}</td>
           <td>
             {{! TO DO: update delete button. This is adding api/expenses to the end of the URL instead of just making the api call }}
             <form action="api/expenses/{{this.id}}" method="DELETE">
