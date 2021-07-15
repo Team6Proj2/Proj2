@@ -32,11 +32,10 @@
           <td>{{this.merchant}}</td>
           <td>${{format_amount this.total_amount}}</td>
           <td>{{format_date this.date_created}}</td>
-          {{! TO DO: get category name instead of category id }}
           <td>{{this.category.name}}</td>
           <td>
             {{! TO DO: update delete button. This is adding api/expenses to the end of the URL instead of just making the api call }}
-            <form action="api/expenses/{{this.id}}" method="DELETE">
+            <form>
               <button
                 data-id="{{this.id}}"
                 class="btn btn-danger text-center"
