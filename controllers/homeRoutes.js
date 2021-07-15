@@ -93,7 +93,12 @@ router.get("/login", (req, res) => {
 
 router.get("/create", withAuth, async (req, res) => {
   try {
+    // serialize data so the template can read it
+    const userData = await User.findByPk(req.session.user_id);
+
+    const user = userData.get({ plain: true });
     res.render("create", {
+      user,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
