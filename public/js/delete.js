@@ -1,5 +1,3 @@
-let deleteExpenseEl = document.getElementById("delete-btn");
-
 // TO DO: Does not delete expense from response
 const delButtonHandler = async (event) => {
   // if (event.target.hasAttribute("data-id")) {
@@ -17,4 +15,6 @@ const delButtonHandler = async (event) => {
   }
 };
 
-deleteExpenseEl.addEventListener("click", delButtonHandler);
+document
+  .querySelector(".expenses-list")
+  .addEventListener("click", delButtonHandler);

@@ -1,52 +1,59 @@
 {{#if logged_in}}
   <header>
     <nav class="navbar navbar-light bg-dark d-flex justify-content-between">
-      {{! TO DO: user.name does not come through here. }}
+      <a href="/" class="btn btn-primary view-btn">Home</a>
       <h3>Create a New Expense</h3>
-      <div>
-        <a href="/" class="btn btn-primary view-btn">Home</a>
-        <a href="/logout" id="logout" class="btn btn-danger">Logout</a>
-      </div>
+      <a href="/logout" id="logout" class="btn btn-danger">Logout</a>
     </nav>
   </header>
-
-  <div class="row mt-4 d-flex justify-content-center">
-    <div class="col-md-6">
-
-      <form>
-        <div class="form-group">
-          <label>Expense Name</label>
-          <input type="text" class="form-control" id="expense-description" />
-          <small class="form-text text-muted">Enter a short description of your
-            expense.</small>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <form>
+          <div class="form-group">
+            <label>Expense Name</label>
+            <input type="text" class="form-control" id="expense-description" />
+            <small class="form-text text-muted">Enter a short description of
+              your expense.</small>
+          </div>
+          <div class="form-group">
+            <label>Merchant</label>
+            <input type="text" class="form-control" id="expense-merchant" />
+          </div>
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" class="form-control" id="expense-date" />
+          </div>
+          <div class="form-group">
+            <label>Total (USD)</label>
+            <input type="number" class="form-control" id="expense-total" />
+          </div>
+          <div class="form-group d-flex justify-content-around">
+            <label>Category</label>
+            <select id="expense-category" name="expense-category">
+            </select>
+          </div>
+          <div class="btn-group col-md-12 row justify-content-center">
+            <button
+              type="submit"
+              class="btn btn-outline-primary col-sm-3 m-3 float-right"
+              id="add-btn"
+            >Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-3 d-flex align-items-center">
+        <div class="flex-column">
+          <a href="/expenses" class="btn btn-primary view-btn m-2">See All
+            Expenses</a>
+          <a href="/expenses/{{user.id}}" class="btn btn-primary m-2">See My
+            Expenses</a>
         </div>
-        <div class="form-group">
-          <label>Merchant</label>
-          <input type="text" class="form-control" id="expense-merchant" />
-        </div>
-        <div class="form-group">
-          <label>Date</label>
-          <input type="date" class="form-control" id="expense-date" />
-        </div>
-        <div class="form-group">
-          <label>Total (USD)</label>
-          <input type="number" class="form-control" id="expense-total" />
-        </div>
-        <div class="form-group d-flex justify-content-around">
-          <label>Category</label>
-          <select id="expense-category" name="expense-category">
-          </select>
-        </div>
-        <div class="btn-group col-md-12 row justify-content-center">
-          <button
-            type="submit"
-            class="btn btn-outline-primary col-sm-3 m-3 float-right"
-            id="add-btn"
-          >Submit</button>
-        </div>
-      </form>
+      </div>
     </div>
   </div>
+
   <script src="/js/dropdowns.js"></script>
   <script src="/js/create.js"></script>
   <script src="/js/logout.js"></script>
