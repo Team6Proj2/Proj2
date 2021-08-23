@@ -2,7 +2,7 @@
 
 Accountability is expense management app that simplifies auditing your team’s budget.
 
-![screenshot]
+![screenshot](https://github.com/Team6Proj2/Proj2/blob/main/assets/images/screenshot.png?raw=true)
 
 ## Deployable application link
 
