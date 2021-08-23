@@ -2,6 +2,8 @@
 
 Accountability is expense management app that simplifies auditing your team’s budget.
 
+![screenshot]
+
 ## Deployable application link
 
 https://accountability-team6.herokuapp.com/login
